@@ -1,8 +1,8 @@
 Steps To Follow
 
-run npm install
-run bower install
-run grunt serve
+#run npm install
+#run bower install
+#run grunt serve
 
 
 # excel-sheet-app
