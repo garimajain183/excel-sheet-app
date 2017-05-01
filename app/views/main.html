@@ -1,0 +1,35 @@
+<div clas="row">
+  <div class="col-sm-12 margin-bottom20">
+    <label>Click on buttons to add or remove columns/rows</label>
+    <button type="button" class="btn btn-default" ng-click="table.addColumn()">+Col</button>
+    <button type="button" class="btn btn-default" ng-click="table.addRow()">+Row</button>
+    <button type="button" class="btn btn-danger" ng-click="table.removeColumn(currentColumnSize-1)">-Col</button>
+    <button type="button" class="btn btn-danger" ng-click="table.removeRow(currentRowSize-1)">-Row</button>
+  </div>
+</div>
+<!-- dyanmically adding table data -->
+ <table class="table table-grid" cellpadding="0" cellspacing="0" border="0">
+    <tr ng-init="rowIndex = $index" ng-repeat="rowData in table.data">
+        <td> Row {{rowIndex+1}} : </td>
+          <td ng-init="colIndex = $index" ng-repeat="columnCell in rowData">
+            <input type="text" ng-click="table.onCellInputSelect(rowIndex, colIndex)" set-style 
+            class="width-100per" ng-class="{text_type_bold: columnCell.isBold, text_type_italic: columnCell.isItalic, text_type_underline: columnCell.isUnderline}" ng-model="columnCell.value"/>
+         </td>
+        <td>
+        <input class="button" type="button" value="Copy" ng-if="!table.isCopied" ng-click="table.copyRowData(rowIndex)"/>
+        <input class="button" type="button" value="Paste" ng-if="table.isCopied" ng-click="table.pasterRowData(rowIndex)"/>
+       </td>
+    </tr>
+</table>
+
+
+<div class="text-center">
+  <button  type="button" class="btn btn-success" ng-click="table.saveTableData()">Save </button>
+  <button type="button" class="btn btn-danger" ng-click="table.resetTableData()"> Reset </button>
+
+</div>
+  
+
+  
+    
+    
