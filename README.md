@@ -1,3 +1,10 @@
+Steps To Follow
+
+run npm install
+run bower install
+run grunt serve
+
+
 # excel-sheet-app
 
 This project is generated with [yo angular generator](https://github.com/yeoman/generator-angular)
